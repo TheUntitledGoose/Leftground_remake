@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Left Ground Railroad</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="EXR.html">Extensions Restrictions</a></li>
+        <li><a href="WIFI.html">Wi-Fi Restrictions</a></li>
+        <li><a href="UNROLL.html">Unenrollment</a></li>
+        <li><a href="other.html">Other</a></li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <section class="content">
+    <h1 class="center">Disable managed extentions with crosh and VMC</h1>
+    <p>This method was found by <span class="codeHighlight">vk6#7391</span>. This has only been tested to work in the latest version of 111, but it probably works on pretty much any ChromeOS version.
+    </p>
+    <p> Prerequsites:</p>
+    <ul>
+        <li>A managed Chromebook with Crosh enabled
+        </li>
+        <li>The <span class="codeHighlight">VmManagementCliAllowed</span> policy either unset or set to true
+        </li>
+        <li>A willingness to powerwash
+        </li>
+    </ul>
+    <p>Instructions:
+    </p>
+    <ul>
+        <li>Back up any data you want before the powerwash.
+        </li>
+        <li>Powerwash by using <span class="codeHighlight">ESC + Refresh + Power</span> (Not sure if you need dev mode)
+        </li>
+        <li>Log into your Google account as normal, but immediately disable your internet right after you sign in.
+        </li>
+        <li>You should be logged into your account, but without any extensions installed due to being offline.</li>
+            <li>Open up crosh by hitting <span class="codeHighlight">CTRL+ALT+T</span>.</li> 
+            
+        <li>For each extension you want to disable, run this command: <span class="codeHighlight">vmc create-extra-disk --size 1 /home/chronos/user/Extensions/"place extension id here"</span>
+        </li>
+        <li>Re-enable your internet, and if you typed/pasted in the extension IDs correctly, those specific extensions should be blocked from ever being installed.
+        </li>
+      
+    </ul>
+  <p>Suggested blocked extensions:
+    </p>
+<p>Aristotle Student- <br>
+  <span class="codeHighlight">vmc create-extra-disk --size 1 /home/chronos/user/Extensions/nlibfhmpaekfodhimpplbjbkenjknaaa</span>
+     </p>
+     <p> Safe Doc- <br>
+      <span class="codeHighlight">vmc create-extra-disk --size 1 /home/chronos/user/Extensions/mmhppocgfdombmapajfeafhecobfcjpk</span>
+        </p>
+        <p> PA User Agent for CrOS- <br>
+          <span class="codeHighlight">vmc create-extra-disk --size 1 /home/chronos/user/Extensions/jnhnbhjcjodgacaefifmobgbkjokfmcd</span>
+            </p>
+            <p> Bark for Chrome Watchdog- <br>
+              <span class="codeHighlight">vmc create-extra-disk --size 1 /home/chronos/user/Extensions/agknpiliocimoiokabdfecmgilemoich</span></p>
+  
+  <h1 class="center">New Incognito</h1>
+  <p>This is very similar to the v81 incog exploit in the sense that a sandboxed version of Chrome is able to open links in the browser and extensions can't see it. Some policies still apply. The way this exploit works is with this Captive Portal Authorization (CAPP) window. This is not very common to come across, but it's used for when Wi-Fi networks want you to log in. This captive portal window runs without extensions, in a partial incognito/guest instance. The silly part is that if you open a link in a new tab, it will create a new Chrome instance without extensions. This is like the v81 incog and kiosk exploits. But how do you actually get a CAPP screen? DNS spoofing is probably the most likely way. Works on latest version. Does not work below version 105. 
+</p><p>The finalized steps for incog exploit are:
+</p>
+<ul><li>"Forget" and rejoin your preferred wifi network from settings
+</li>
+    <li>Set the DNS servers of the connected network to <span class="codeHighlight">0.0.0.0</span> (settings > search for "dns")
+    </li>
+    <li>Wait a sec and set the first DNS server to <span class="codeHighlight">52.207.185.90</span>
+    </li>
+    <li>Wait for the "network sign-in" prompt (if you dont get one, make sure you forgot the network from settings)
+    </li>
+    <li>Click the button in the weird new window, and it'll open an "incog" window
+    </li>
+    <li>Stuff unblocked wowee
+    </li>
+    <li>Set DNS back to <span class="codeHighlight">auto</span>, and turn your general WiFi off and back on like it says 
+
+    </li></ul>
+
+    <h1 class="center">Extension Kill
+    </h1>
+  <p>The Extension-Kill method will kick your desired extension off your device for around 3 seconds. If you use a special bookmarklet, you may be able to stay on blocked sites
+</p>
+
+<ul><li>Go to the background page of your blocker (I recommend bookmarking it)
+
+</li></ul>
+<p>The general formula for the background page is <span class="codeHighlight">chrome-extension: //' + your extension id + '/ _generated_background_page.html</span>. You can get the extension id by going to <span class="codeHighlight">chrome://extensions</span> and clicking details by your extension and you'll see your id right after <span class="codeHighlight">id=</span> in the url. The background page should be white
+</p>
+
+<ul>
+    <li>(- Make sure your bookmarks bar is open <span class="codeHighlight">CTRL+Shift+B</span>) - Create a new bookmark with the url <span class="codeHighlight">chrome://kill</span>
+    </li>
+    <li>While you are on the background page click on the bookmark
+    </li>
+    <li>Your extension will now crash
+    </li>
+  </ul>
+
+  <h1 class="center">Webviews</h1>
+  <p> Because of the vast amounts of webviews, I will give one of the most reliable and easy to access webviews available to Wylie ISD.</p>
+<p>App Bypass without Mailtel:
+<a href="https://drive.google.com/file/d/1OsRc0CIr8rM4Oz-5ik9aCsoE_Ab9d2br/view?usp=sharing" style="display: inline;">Video Tutorial</a></p>
+<ul>
+    <li>Make sure that the email handler in <span class="codeHighlight">chrome://settings/handlers</span> is set to mail.google.com
+    </li>
+    <li>Go to <a href="https://chrome.google.com/webstore/detail/examview-student/jiddeociodbpipccdileegleidjkelcd">ExamView Student</a></li>
+    <li>Download and launch the app
+    </li>
+    <li>Click “Get Adobe Flash Player”
+    </li>
+    <li>Click “Sign in” at the top right corner
+    </li>
+    <li>Click “Continue with Apple”
+    </li>
+    <li>Click the uppermost apple logo
+    </li>
+    <li>Scroll down to “For Government” and click “Shop for Government”
+    </li>
+    <li>Click one of the emails
+    </li>
+    <li>You should be in Gmail now
+    </li>
+    <li>Click “For work” at the top
+    </li>
+    <li>Scroll down and click “Google”</li>
+    <li>You may need to do this twice for it to be functioning properly (Or press ←, →)
+     </li>
+    </ul>
+<p>To open multiple windows go to <a href="https://chrome.google.com/webstore/detail/examview-student/jiddeociodbpipccdileegleidjkelcd">ExamView Student</a> and press “launch app”. You can change handlers by going to chrome://settings/handlers.
+<h3 class="center">Mailtel</h3><p>
+    Mailtel isn’t required or necessary to use an app bypass, but it can make it faster to use one. </p>
+    <ul>
+    <li>Go to one of the websites below:</li>
+ <ul style= "list-style-type:disc"> 
+    <li><a href="https://bypassi.com/mailtel"> https://bypassi.com/mailtel </a> </li> 
+    <li><a href="https://bypassi.netlify.app/mailtel">https://bypassi.netlify.app/mailtel</a>(down RN) </li> 
+    <li><a href="https://bypassi.vercel.app/mailtel">https://bypassi.vercel.app/mailtel</a> </li> 
+    <li><a href="https://bypassi.glitch.me/mailtel">https://bypassi.glitch.me/mailtel</a></li>
+</ul> <li>Click on “alternative” (google if you really want to)</li>
+<li>A popup should appear, press accept on both</li>
+<li> launch the ExamView app</li>
+<li>Click “Get Adobe Flash Player”
+</li><li>Scroll down to “Purchase by phone: 800-585-0774”
+</li><li>Click the phone number
+
+</li></ul>
+<p> this will bring you to <a href="https://www.bypassi.com/redirectool">https://www.bypassi.com/redirectool</a> which can then bring you to google</p>
+
+<p>These are just to get around extention blocks, you are still susceptible to Wifi and network restirctions which we cover <a href="wifi">here.</a></p>
+<p>editors note: andy can't do css smh</p>
+  
+            </section>
+
+  <footer>
+    <p>&copy; 2023 Left Ground LLC</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
+
